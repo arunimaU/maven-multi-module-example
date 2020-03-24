@@ -49,7 +49,42 @@ pipeline {
 	    {steps{
                 sh '/opt/maven/bin/mvn clean package -Dmaven.test.skip=true'
 	    }    }
-      
+      tage('Please Provide Approval for Release in SIT'){
+
+          steps{
+
+            script{
+
+                def userInput
+
+  try {
+
+    userInput = input(
+
+        id: 'Proceed1', message: 'SIT Approval', parameters: [
+
+        [$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please Confirm you agree with this']
+
+        ])
+
+} catch(err) {
+
+    def user = err.getCauses()[0].getUser()
+
+    userInput = false
+
+    echo "Aborted by: [${user}]"
+
+}
+
+          }
+
+        }
+
+        }                 
+
+
+
      stage ('Release') 
      
      {steps{
