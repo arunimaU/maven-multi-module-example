@@ -9,6 +9,41 @@ pipeline {
            git 'https://github.com/arunimaU/maven-multi-module-example.git'
 		}
 	}
+	         stage('Please Provide Approval for build'){
+
+          steps{
+
+            script{
+
+                def userInput
+
+  try {
+
+    userInput = input(
+
+        id: 'Proceed1', message: 'Build Approval', parameters: [
+
+        [$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please Confirm you agree with this']
+
+        ])
+
+} catch(err) {
+
+    def user = err.getCauses()[0].getUser()
+
+    userInput = false
+
+    echo "Aborted by: [${user}]"
+
+}
+
+          }
+
+        }
+
+        }                 
+
+
 	stage ('Build')
 	   
 	    {steps{
