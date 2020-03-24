@@ -49,7 +49,7 @@ pipeline {
 	    {steps{
                 sh '/opt/maven/bin/mvn clean package -Dmaven.test.skip=true'
 	    }    }
-      tage('Please Provide Approval for Release in SIT'){
+      stage('Please Provide Approval for Release in SIT'){
 
           steps{
 
