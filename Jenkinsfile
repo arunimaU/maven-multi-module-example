@@ -89,6 +89,16 @@ pipeline {
      
      {steps{
 	        sh '/opt/maven/bin/mvn --batch-mode release:clean release:prepare release:perform'
+	     
           }
+          }
+       stage('Deployment-SIT'){
+
+            steps{
+
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sh transfer.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+
+            }
+
           }
        }}
