@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.jamesward</groupId>
     <artifactId>multi</artifactId>
-    <version>1.6</version>
+    <version>1.6-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>multi</name>
     <modules>
@@ -13,7 +13,7 @@
        <connection>scm:https://github.com/arunimaU/maven-multi-module-example.git</connection>
        <url>https://github.com/arunimaU/maven-multi-module-example.git</url>
        <developerConnection>scm:git:https://github.com/arunimaU/maven-multi-module-example.git</developerConnection>
-      <tag>1.6</tag>
+      <tag>1.6-SNAPSHOT</tag>
   </scm>
 
 <distributionManagement>
