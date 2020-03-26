@@ -96,7 +96,8 @@ pipeline {
 
             steps{
 
-                sh label: '', returnStdout: true, script: '''cd /home/ansible1
+                sh label: '', returnStdout: true, script: '''su ansible1
+cd 
 sh transfer.sh'''
             }
 
